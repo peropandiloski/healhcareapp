@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="/stylesheets/doctors.css">
+
+
+
+<div class="container">
+  <form class="content">
+<h3 class="heading">Doctors</h3>
+<a href="/doctors/create" class="btn btn-primary">Add</a>
+<table class="table table-hover table-light table-striped">
+  <thead>
+    <tr>
+      <th scope="col">License No.</th>
+      <th scope="col">Name</th>
+      <th scope="col">Specialization</th>
+      <th scope="col">City</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% doctors.forEach(doctor => { %>
+      <tr>
+        <th scope="row"><%= doctor.licence_number %></th>
+        <td><%= doctor.full_name %></td>
+        <td><%= doctor.specialization %></td>
+        <td><%= doctor.city %></td>
+        <td>
+          <a href="/doctors/<%= doctor._id %>" class="btn btn-warning">Edit</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+</form>
+</div>
