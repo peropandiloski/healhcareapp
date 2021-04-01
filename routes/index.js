@@ -46,6 +46,15 @@ router
     }
   })
 
+  .delete('/doctors/:id', async (req, res) => {
+    await Doctor.findByIdAndRemove(req.params.id)
+
+    res.send({
+      error: false,
+      message: `Doctor with id #${req.params.id} removed`
+    })
+  })
+
 
 // Patients ROUTES
 router
@@ -89,6 +98,14 @@ router
         error: error.message
       })
     }
+  })
+  .delete('/patients/:id', async (req, res) => {
+    await Patient.findByIdAndRemove(req.params.id)
+
+    res.send({
+      error: false,
+      message: `Doctor with id #${req.params.id} removed`
+    })
   })
 
 
